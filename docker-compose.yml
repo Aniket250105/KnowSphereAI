@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  knowsphere-api:
+    build: .
+    container_name: knowsphere_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - ENVIRONMENT=production
+      - API_BASE_URL=http://localhost:8000/api/v1
+      - ASYNC_DATABASE_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/knowsphere
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/knowsphere
+      - QDRANT_URL=http://qdrant:6333
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - postgres
+      - qdrant
+      - redis
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: knowsphere_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: knowsphere
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: knowsphere_qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: knowsphere_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  qdrant_data:
+  redis_data:

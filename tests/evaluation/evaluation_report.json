@@ -1,0 +1,9 @@
+{
+    "total_queries": 10,
+    "top_1_accuracy": 1.0,
+    "top_3_accuracy": 1.0,
+    "mrr": 1.0,
+    "recall_at_3": 1.0,
+    "average_similarity_score": 0.7606,
+    "average_retrieval_time": 5.2266
+}

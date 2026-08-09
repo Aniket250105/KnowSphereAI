@@ -1,0 +1,28 @@
+[
+ {
+   "query": "What causes deadlock?",
+   "expected_source": "operating_systems.txt",
+   "expected_keywords": [
+       "process",
+       "resource",
+       "waiting"
+   ]
+ },
+ {
+   "query": "What is AI?",
+   "expected_source": "ai_fundamentals.txt",
+   "expected_keywords": [
+       "artificial",
+       "intelligence",
+       "machine"
+   ]
+ },
+ {
+   "query": "Who is the president of Mars?",
+   "expected_source": "",
+   "expected_keywords": [
+       "couldn't",
+       "find"
+   ]
+ }
+]

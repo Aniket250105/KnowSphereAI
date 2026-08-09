@@ -1,0 +1,129 @@
+[
+    {
+        "query": "What is artificial intelligence?",
+        "category": "machine_learning",
+        "difficulty": "easy",
+        "expected_documents": [
+            "machine_learning.txt"
+        ],
+        "expected_keywords": [
+            "simulation",
+            "human intelligence"
+        ]
+    },
+    {
+        "query": "Explain deadlock.",
+        "category": "computer_science",
+        "difficulty": "easy",
+        "expected_documents": [
+            "operating_systems.txt"
+        ],
+        "expected_keywords": [
+            "process",
+            "resource",
+            "waiting",
+            "circular"
+        ]
+    },
+    {
+        "query": "What is the attendance requirement?",
+        "category": "education",
+        "difficulty": "easy",
+        "expected_documents": [
+            "university_rules.txt"
+        ],
+        "expected_keywords": [
+            "75%",
+            "attendance"
+        ]
+    },
+    {
+        "query": "When are exams conducted?",
+        "category": "education",
+        "difficulty": "easy",
+        "expected_documents": [
+            "university_rules.txt"
+        ],
+        "expected_keywords": [
+            "December",
+            "May",
+            "semester"
+        ]
+    },
+    {
+        "query": "What is a Python function?",
+        "category": "programming",
+        "difficulty": "easy",
+        "expected_documents": [
+            "python_basics.txt"
+        ],
+        "expected_keywords": [
+            "def",
+            "modularize",
+            "reusability"
+        ]
+    },
+    {
+        "query": "How is memory managed?",
+        "category": "computer_science",
+        "difficulty": "medium",
+        "expected_documents": [
+            "operating_systems.txt"
+        ],
+        "expected_keywords": [
+            "primary memory",
+            "paging",
+            "segmentation"
+        ]
+    },
+    {
+        "query": "How do algorithms learn without labels?",
+        "category": "machine_learning",
+        "difficulty": "medium",
+        "expected_documents": [
+            "machine_learning.txt"
+        ],
+        "expected_keywords": [
+            "unsupervised learning",
+            "unlabeled",
+            "clusters"
+        ]
+    },
+    {
+        "query": "How does python define code blocks?",
+        "category": "programming",
+        "difficulty": "medium",
+        "expected_documents": [
+            "python_basics.txt"
+        ],
+        "expected_keywords": [
+            "indentation",
+            "curly braces"
+        ]
+    },
+    {
+        "query": "Explain CPU scheduling algorithms.",
+        "category": "computer_science",
+        "difficulty": "hard",
+        "expected_documents": [
+            "operating_systems.txt"
+        ],
+        "expected_keywords": [
+            "FCFS",
+            "Round Robin",
+            "SJN"
+        ]
+    },
+    {
+        "query": "What mimics the human brain?",
+        "category": "machine_learning",
+        "difficulty": "hard",
+        "expected_documents": [
+            "machine_learning.txt"
+        ],
+        "expected_keywords": [
+            "Neural networks",
+            "deep learning"
+        ]
+    }
+]

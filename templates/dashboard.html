@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div style="margin-bottom: 2rem;">
+    <h1 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 0.5rem;">Dashboard</h1>
+    <p style="color: var(--text-muted);">Welcome back! Here's an overview of your knowledge base.</p>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+    <div class="card" style="margin-bottom: 0;">
+        <div style="color: var(--text-muted); font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">Total Documents</div>
+        <div style="font-size: 2.25rem; font-weight: 700; color: var(--primary);" id="stat-docs">
+            <div class="skeleton skeleton-text" style="height: 2.5rem; width: 60px;"></div>
+        </div>
+    </div>
+    <div class="card" style="margin-bottom: 0;">
+        <div style="color: var(--text-muted); font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">Indexed Chunks</div>
+        <div style="font-size: 2.25rem; font-weight: 700; color: var(--primary);" id="stat-chunks">
+            <div class="skeleton skeleton-text" style="height: 2.5rem; width: 60px;"></div>
+        </div>
+    </div>
+    <div class="card" style="margin-bottom: 0;">
+        <div style="color: var(--text-muted); font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">System Health</div>
+        <div style="font-size: 1.5rem; font-weight: 700; margin-top: 0.5rem;" id="stat-health">
+            <div class="skeleton skeleton-text" style="height: 2rem; width: 100px;"></div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Recent Activity</h3>
+    <div id="recent-activity" style="color: var(--text-muted);">
+        Loading activity...
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/dashboard.js"></script>
+{% endblock %}

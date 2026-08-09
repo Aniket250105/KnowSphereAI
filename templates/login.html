@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - KnowSphere AI</title>
+    <link rel="stylesheet" href="/static/css/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="/static/js/api.js"></script>
+    <style>
+        .spin { animation: spin 1s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h1 class="auth-title">Welcome to KnowSphere AI</h1>
+            
+            <div id="loginError" class="error-text" style="display: none; margin-bottom: 1rem; text-align: center; color: #ef4444;"></div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input class="form-input" type="email" id="email" required placeholder="demo@knowsphere.local">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input class="form-input" type="password" id="password" required placeholder="demo123">
+                </div>
+                <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%; margin-top: 1rem; padding: 0.75rem; display: flex; justify-content: center; align-items: center; gap: 0.5rem;">
+                    <span id="btnText">Sign In</span>
+                    <i data-feather="loader" id="btnLoader" class="spin" style="display: none; width: 16px; height: 16px;"></i>
+                </button>
+            </form>
+            
+            <div style="margin-top: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.875rem;">
+                <p>Demo Account: demo@knowsphere.local / demo123</p>
+                <p style="margin-top: 0.5rem;">Don't have an account? <a href="/register" style="color: var(--primary);">Register</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/auth.js"></script>
+</body>
+</html>

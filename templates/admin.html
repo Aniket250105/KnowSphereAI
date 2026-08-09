@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <div>
+        <h1 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 0.5rem;">System Health Dashboard</h1>
+        <p style="color: var(--text-muted);">Real-time infrastructure monitoring.</p>
+    </div>
+    <div style="color: var(--text-muted); font-size: 0.875rem;">
+        Last updated: <span id="lastUpdated">Never</span> <i data-feather="refresh-cw" id="refreshBtn" style="width: 14px; height: 14px; cursor: pointer; margin-left: 0.5rem;" title="Refresh now"></i>
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+    <div class="card" style="margin-bottom: 0; text-align: center;">
+        <i data-feather="server" style="width: 32px; height: 32px; color: var(--text-muted); margin-bottom: 1rem;"></i>
+        <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">API & Database</h3>
+        <div id="status-api" style="display: inline-block; padding: 0.25rem 1rem; border-radius: 999px; font-weight: 600; background: var(--surface); color: var(--text-muted);">Checking...</div>
+    </div>
+    
+    <div class="card" style="margin-bottom: 0; text-align: center;">
+        <i data-feather="database" style="width: 32px; height: 32px; color: var(--text-muted); margin-bottom: 1rem;"></i>
+        <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">Vector Store</h3>
+        <div id="status-vector" style="display: inline-block; padding: 0.25rem 1rem; border-radius: 999px; font-weight: 600; background: var(--surface); color: var(--text-muted);">Checking...</div>
+    </div>
+    
+    <div class="card" style="margin-bottom: 0; text-align: center;">
+        <i data-feather="cpu" style="width: 32px; height: 32px; color: var(--text-muted); margin-bottom: 1rem;"></i>
+        <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">LLM Engine</h3>
+        <div id="status-llm" style="display: inline-block; padding: 0.25rem 1rem; border-radius: 999px; font-weight: 600; background: var(--surface); color: var(--text-muted);">Checking...</div>
+    </div>
+    
+    <div class="card" style="margin-bottom: 0; text-align: center;">
+        <i data-feather="layers" style="width: 32px; height: 32px; color: var(--text-muted); margin-bottom: 1rem;"></i>
+        <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">Embeddings</h3>
+        <div id="status-embedding" style="display: inline-block; padding: 0.25rem 1rem; border-radius: 999px; font-weight: 600; background: var(--surface); color: var(--text-muted);">Checking...</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/admin.js"></script>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <div>
+        <h1 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 0.5rem;">Knowledge Base</h1>
+        <p style="color: var(--text-muted);">Manage your documents and data sources.</p>
+    </div>
+</div>
+
+<div class="card">
+    <div id="dropzone" class="upload-zone" onclick="document.getElementById('fileInput').click()">
+        <i data-feather="upload-cloud" style="width: 48px; height: 48px; color: var(--primary); margin-bottom: 1rem;"></i>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Click or drag file to this area to upload</h3>
+        <p style="color: var(--text-muted); font-size: 0.875rem;">Supports PDF, DOCX, and TXT files</p>
+        <input type="file" id="fileInput" style="display: none;" accept=".pdf,.txt,.docx">
+    </div>
+    <div id="uploadStatus" style="margin-top: 1rem; text-align: center; font-weight: 500; display: none;"></div>
+</div>
+
+<div class="card">
+    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Indexed Documents</h3>
+    <div style="overflow-x: auto;">
+        <table class="doc-list">
+            <thead>
+                <tr>
+                    <th>Filename</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Chunks</th>
+                    <th>Date Added</th>
+                    <th style="text-align: right;">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="docTableBody">
+                <tr>
+                    <td colspan="5" style="text-align: center; color: var(--text-muted);">Loading documents...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/documents.js"></script>
+{% endblock %}

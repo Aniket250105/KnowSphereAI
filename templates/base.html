@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowSphere AI</title>
+    <link rel="stylesheet" href="/static/css/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/api.js"></script>
+</head>
+<body>
+    <div id="toast-container"></div>
+    {% block content %}
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="brand">
+                <i data-feather="box"></i>
+                KnowSphere AI
+            </div>
+            <nav class="nav-links">
+                <a href="/dashboard" class="nav-link {% if active_page == 'dashboard' %}active{% endif %}">
+                    <i data-feather="home"></i> Dashboard
+                </a>
+                <a href="/chat" class="nav-link {% if active_page == 'chat' %}active{% endif %}">
+                    <i data-feather="message-square"></i> Chat
+                </a>
+                <a href="/documents" class="nav-link {% if active_page == 'documents' %}active{% endif %}">
+                    <i data-feather="file-text"></i> Documents
+                </a>
+                <a href="/agents" class="nav-link {% if active_page == 'agents' %}active{% endif %}">
+                    <i data-feather="cpu"></i> AI Agents
+                </a>
+                <a href="/history" class="nav-link {% if active_page == 'history' %}active{% endif %}">
+                    <i data-feather="clock"></i> History
+                </a>
+                <a href="/analytics" class="nav-link {% if active_page == 'analytics' %}active{% endif %}">
+                    <i data-feather="bar-chart-2"></i> Analytics
+                </a>
+                <a href="/evaluation" class="nav-link {% if active_page == 'evaluation' %}active{% endif %}">
+                    <i data-feather="check-circle"></i> Evaluation
+                </a>
+                <div style="flex-grow: 1;"></div>
+                <a href="/settings" class="nav-link {% if active_page == 'settings' %}active{% endif %}">
+                    <i data-feather="settings"></i> Settings
+                </a>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-search">
+                    <input type="text" class="form-input" placeholder="Search across KnowSphere..." style="width: 300px; height: 36px;">
+                </div>
+                <div class="topbar-actions" style="display: flex; gap: 1rem; align-items: center;">
+                    <button class="btn btn-outline" id="themeToggle" style="padding: 0.5rem;">
+                        <i data-feather="moon"></i>
+                    </button>
+                    <div class="user-menu" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                        <div id="userAvatar" style="width: 32px; height: 32px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: 600;">
+                            ?
+                        </div>
+                        <div style="display: flex; flex-direction: column; line-height: 1.2;">
+                            <span id="userName" style="font-weight: 500;">Loading...</span>
+                            <span id="userRole" style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;"></span>
+                        </div>
+                        <button onclick="logout()" class="btn btn-outline" style="border: none; margin-left: 0.5rem;" title="Logout"><i data-feather="log-out"></i></button>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="page-content">
+                {% block page_content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+    {% endblock %}
+
+    <script src="/static/js/app-global.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

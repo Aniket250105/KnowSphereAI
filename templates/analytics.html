@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <div>
+        <h1 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 0.5rem;">Analytics Dashboard</h1>
+        <p style="color: var(--text-muted);">Platform usage and performance metrics.</p>
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+    <div class="card" style="margin-bottom: 0;">
+        <div style="color: var(--text-muted); font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">Total Documents</div>
+        <div style="font-size: 2rem; font-weight: 700; color: var(--primary);" id="stat-docs">--</div>
+    </div>
+    <div class="card" style="margin-bottom: 0;">
+        <div style="color: var(--text-muted); font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">Total Queries</div>
+        <div style="font-size: 2rem; font-weight: 700; color: var(--primary);" id="stat-queries">--</div>
+    </div>
+    <div class="card" style="margin-bottom: 0;">
+        <div style="color: var(--text-muted); font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">Active Users</div>
+        <div style="font-size: 2rem; font-weight: 700; color: var(--primary);" id="stat-users">--</div>
+    </div>
+    <div class="card" style="margin-bottom: 0;">
+        <div style="color: var(--text-muted); font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">Avg Response Time</div>
+        <div style="font-size: 2rem; font-weight: 700; color: var(--primary);" id="stat-latency">--</div>
+    </div>
+    <div class="card" style="margin-bottom: 0;">
+        <div style="color: var(--text-muted); font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">System Health</div>
+        <div style="font-size: 1.5rem; font-weight: 700; color: #10b981;" id="stat-health">--</div>
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+    <div class="card" style="margin-bottom: 0;">
+        <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Query Activity (Last 7 Days)</h3>
+        <canvas id="queryChart" height="200"></canvas>
+    </div>
+    <div class="card" style="margin-bottom: 0;">
+        <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Document Usage Top Sources</h3>
+        <canvas id="docChart" height="200"></canvas>
+    </div>
+</div>
+
+<div class="card" style="margin-bottom: 2rem;">
+    <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Feedback Scores</h3>
+    <div style="max-width: 600px; margin: 0 auto;">
+        <canvas id="feedbackChart" height="200"></canvas>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/analytics.js"></script>
+{% endblock %}
